@@ -14,6 +14,7 @@ To build and run it you'll need:
 * git
 * docker
 * docker-machine
+* virtualbox
 
 If you wish to compile frontend part, you'll need:
 
@@ -21,10 +22,14 @@ If you wish to compile frontend part, you'll need:
 * npm
 * browserify
 
+Also you'll need Twitter API keys. Get yours on https://apps.twitter.com/
+
 To run:
 
-    git clone git@github.com:C-Pro/ddemo_compose.git
+    git clone --recursive git@github.com:C-Pro/ddemo_compose.git
     cd ddemo_compose
+    cp api_keys.env.example api_keys.env
+    vim api_keys.env # enter your Twitter API secrets.
     ./run.sh
 
 Once everything is up you can point your browser to returned URL and access dashboard.

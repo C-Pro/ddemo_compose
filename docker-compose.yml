@@ -1,0 +1,32 @@
+version: '3.1'
+
+services:
+    db:
+        image: memcached:alpine
+        hostname: db
+    get_tweets:
+        image: cpro29a/ddemo_gettweets
+        environment:
+            - MEMCACHE_SERVER=db:11211
+            - SECRETS=/run/secrets/secrets.env
+        depends_on:
+            - db
+        secrets:
+            - source: secrets.env
+              target: secrets.env
+              mode: 0444
+    web_app:
+        image: cpro29a/ddemo_webapp
+        hostname: web
+        ports:
+            - "80:8080"
+        environment:
+            - MEMCACHE_SERVER=db:11211
+            - LISTEN_HOST=0.0.0.0
+        depends_on:
+            - db
+            - get_tweets
+secrets:
+    secrets.env:
+        file: ./api_keys.env
+

@@ -1,0 +1,9 @@
+[submodule "ddemo_webapp"]
+	path = ddemo_webapp
+	url = git@github.com:C-Pro/ddemo_webapp.git
+[submodule "ddemo_pybase"]
+	path = ddemo_pybase
+	url = git@github.com:C-Pro/ddemo_pybase.git
+[submodule "ddemo_gettweets"]
+	path = ddemo_gettweets
+	url = git@github.com:C-Pro/ddemo_gettweets.git
